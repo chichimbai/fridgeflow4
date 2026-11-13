@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Личный кабинет — FridgeFlow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+  <body class="page-cabinet">
+    <div class="app">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M11.8 21c-4.6-5.1-6.4-9.1-3.5-13.3C12.8 8.4 16.2 12 16.8 16.4c-.9.2-1.9.6-2.8 1.2-.6.5-1.4.9-2.2 1.4Z"
+            />
+            <path
+              fill="currentColor"
+              opacity="0.72"
+              d="M12.1 20.7c1.3-3.9 4-6.7 8.2-7.7-.9 4.7-3.6 8.2-8.2 9v-1.3Z"
+            />
+          </svg>
+          <span>FridgeFlow</span>
+        </a>
+        <nav class="side-nav" aria-label="Разделы">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 4.2 4 10.4V20h5.2v-5.2h5.6V20H20v-9.6L12 4.2Z" />
+            </svg>
+            Главная
+          </a>
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M7 3.5h10a2 2 0 0 1 2 2V20l-2.2-1.4L14.6 20l-2.6-1.4L9.4 20l-2.2-1.4L5 20V5.5a2 2 0 0 1 2-2Zm1.2 5h7.6v1.6H8.2V8.5Zm0 3.4h7.6v1.6H8.2v-1.6Z"
+              />
+            </svg>
+            Мой холодильник
+          </a>
+          <a href="recipes.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M5 10.2h14v1.1c0 3.6-3.1 6.5-7 6.5s-7-2.9-7-6.5v-1.1Zm1.8-3.4h10.4c-.3-1.7-1.8-2.8-5.2-2.8s-4.9 1.1-5.2 2.8ZM8 19.4h8v1.4H8v-1.4Z"
+              />
+            </svg>
+            Рецепты
+          </a>
+          <a href="reviews.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-3.5 3v-3H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5Z" />
+            </svg>
+            Отзывы
+          </a>
+          <a href="cabinet.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 12.2a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8ZM5.2 19.2c.7-3 3.4-4.8 6.8-4.8s6.1 1.8 6.8 4.8v.8H5.2v-.8Z"
+              />
+            </svg>
+            Личный кабинет
+          </a>
+        </nav>
+        <p class="sidebar-note">Меньше отходов.<br />Больше пользы.</p>
+      </aside>
+
+      <main class="dashboard page-shell">
+        <header class="profile-hero">
+          <span class="avatar-xl" id="account-initials" aria-hidden="true">А</span>
+          <div class="profile-id">
+            <p class="eyebrow">FridgeFlow · личный кабинет</p>
+            <h1 id="account-name">Алия</h1>
+            <p class="profile-about" id="account-about">Расскажите о себе — это увидят в ваших отзывах.</p>
+            <div class="profile-level">
+              <span class="level-chip" id="level-chip">Уровень 1 · Новичок</span>
+              <span class="level-xp" id="level-xp">0 XP</span>
+            </div>
+            <div class="xp-track" aria-hidden="true"><span class="xp-fill" id="xp-fill"></span></div>
+          </div>
+          <button class="action action-quiet profile-edit" id="account-open" type="button">Изменить профиль</button>
+        </header>
+
+        <div class="drawer" id="account-drawer" hidden>
+          <div class="drawer-inner">
+            <form id="account-form" class="drawer-form" novalidate>
+              <label class="field">
+                Имя
+                <input name="name" type="text" maxlength="40" autocomplete="name" />
+              </label>
+              <label class="field">
+                О себе
+                <textarea name="about" maxlength="180" placeholder="Коротко: что готовите, за чем следите"></textarea>
+              </label>
+              <p class="form-meta">
+                <span>До 15 слов. Видно в отзывах.</span>
+                <strong id="about-count">0 / 180</strong>
+              </p>
+              <div class="drawer-foot">
+                <button class="action" type="submit">Сохранить</button>
+                <button class="action action-quiet" id="account-cancel" type="button">Отмена</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="stat-tiles">
+          <article class="stat-tile">
+            <span class="stat-icon tone-green" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.2 4.2L19 7" /></svg>
+            </span>
+            <strong id="stat-used">0</strong>
+            <span>Продуктов использовано</span>
+            <small id="stat-rate">0% из закрытых</small>
+          </article>
+          <article class="stat-tile">
+            <span class="stat-icon tone-red" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4 3 20h18L12 4Zm0 6v5m0 3v.01" /></svg>
+            </span>
+            <strong id="stat-expired">0</strong>
+            <span>Просрочено</span>
+            <small id="stat-lost">Потерь нет</small>
+          </article>
+          <article class="stat-tile">
+            <span class="stat-icon tone-sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 8h6M9 11h6M12 8v9M4 6h16v13H4z" /></svg>
+            </span>
+            <strong id="stat-saved">0</strong>
+            <span>Сэкономлено</span>
+            <small>По вашим и средним ценам</small>
+          </article>
+          <article class="stat-tile">
+            <span class="stat-icon tone-green" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3Z" /></svg>
+            </span>
+            <strong id="stat-clean">0</strong>
+            <span>Дней без просрочки</span>
+            <small id="stat-clean-note">С последней потери</small>
+          </article>
+        </div>
+
+        <div class="cabinet-grid">
+          <section class="panel" aria-labelledby="chart-title">
+            <div class="panel-head">
+              <div class="panel-title-group">
+                <p class="eyebrow">14 дней</p>
+                <h2 id="chart-title">Динамика холодильника</h2>
+              </div>
+              <span class="badge-soft" id="chart-total">0 событий</span>
+            </div>
+            <div class="chart" id="day-chart" role="img" aria-label="Использованные и просроченные продукты за 14 дней"></div>
+            <div class="chart-legend">
+              <span>Использовано</span>
+              <span class="legend-expired">Просрочено</span>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="savings-title">
+            <div class="panel-head">
+              <div class="panel-title-group">
+                <p class="eyebrow">Экономия</p>
+                <h2 id="savings-title">Сколько спасено</h2>
+              </div>
+              <div class="currency-row">
+                <label for="currency">Валюта</label>
+                <select class="select-soft" id="currency"></select>
+              </div>
+            </div>
+            <p class="money-big" id="saved-amount">0</p>
+            <p class="money-sub" id="saved-lost">Просрочено: —</p>
+            <div class="meter-track" id="scale-track" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="0">
+              <span class="meter-fill" id="scale-fill"></span>
+            </div>
+            <p class="panel-note" id="scale-note">Отметьте продукты как использованные, чтобы увидеть сумму.</p>
+            <ul class="saved-list" id="saved-list"></ul>
+          </section>
+        </div>
+
+        <section class="history-card" id="history-card" tabindex="0" aria-labelledby="history-title">
+          <div class="history-card-head">
+            <span class="history-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z" />
+              </svg>
+            </span>
+            <div class="history-card-copy">
+              <p class="eyebrow">Кухня</p>
+              <h2 id="history-title">История рецептов</h2>
+              <p class="history-card-summary" id="history-summary">Здесь появятся рецепты, которые вы открывали.</p>
+            </div>
+            <span class="badge-soft" id="history-count">0</span>
+            <span class="history-card-arrow" aria-hidden="true">→</span>
+          </div>
+          <div class="history-card-extra">
+            <div class="history-card-extra-inner">
+              <ul class="history-preview" id="history-preview"></ul>
+              <a class="action" id="history-open" href="history.html">Показать историю рецептов</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="fav-title">
+          <div class="panel-head">
+            <div class="panel-title-group">
+              <p class="eyebrow">Избранное</p>
+              <h2 id="fav-title">Отложенные рецепты</h2>
+            </div>
+            <a class="chip-btn" href="recipes.html">К рецептам</a>
+          </div>
+          <div class="history-list" id="cabinet-favorites"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="backup-title">
+          <div class="panel-head">
+            <div class="panel-title-group">
+              <p class="eyebrow">Данные</p>
+              <h2 id="backup-title">Резервная копия</h2>
+            </div>
+            <span class="badge-soft" id="schema-badge">схема v1</span>
+          </div>
+          <p class="panel-note">
+            Все данные живут в этом браузере. Скачайте копию, чтобы перенести холодильник на другое устройство.
+          </p>
+          <div class="backup-actions">
+            <button class="action" id="backup-export" type="button">Скачать копию</button>
+            <label class="action action-quiet file-btn">
+              Загрузить копию
+              <input type="file" id="backup-import" accept="application/json,.json" />
+            </label>
+            <button class="action action-quiet backup-reset" id="backup-reset" type="button">Сбросить всё</button>
+          </div>
+          <p class="usage-note" id="backup-usage"></p>
+        </section>
+      </main>
+    </div>
+    <script src="core.js"></script>
+    <script src="prices.js"></script>
+    <script src="ui.js"></script>
+    <script src="mealdb.js"></script>
+    <script src="translate.js"></script>
+    <script src="cabinet.js"></script>
+  </body>
+</html>

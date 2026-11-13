@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Отзывы — FridgeFlow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+  <body class="page-reviews">
+    <div class="app">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M11.8 21c-4.6-5.1-6.4-9.1-3.5-13.3C12.8 8.4 16.2 12 16.8 16.4c-.9.2-1.9.6-2.8 1.2-.6.5-1.4.9-2.2 1.4Z"
+            />
+            <path
+              fill="currentColor"
+              opacity="0.72"
+              d="M12.1 20.7c1.3-3.9 4-6.7 8.2-7.7-.9 4.7-3.6 8.2-8.2 9v-1.3Z"
+            />
+          </svg>
+          <span>FridgeFlow</span>
+        </a>
+        <nav class="side-nav" aria-label="Разделы">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 4.2 4 10.4V20h5.2v-5.2h5.6V20H20v-9.6L12 4.2Z" />
+            </svg>
+            Главная
+          </a>
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M7 3.5h10a2 2 0 0 1 2 2V20l-2.2-1.4L14.6 20l-2.6-1.4L9.4 20l-2.2-1.4L5 20V5.5a2 2 0 0 1 2-2Zm1.2 5h7.6v1.6H8.2V8.5Zm0 3.4h7.6v1.6H8.2v-1.6Z"
+              />
+            </svg>
+            Мой холодильник
+          </a>
+          <a href="recipes.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M5 10.2h14v1.1c0 3.6-3.1 6.5-7 6.5s-7-2.9-7-6.5v-1.1Zm1.8-3.4h10.4c-.3-1.7-1.8-2.8-5.2-2.8s-4.9 1.1-5.2 2.8ZM8 19.4h8v1.4H8v-1.4Z"
+              />
+            </svg>
+            Рецепты
+          </a>
+          <a href="reviews.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-3.5 3v-3H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5Z" />
+            </svg>
+            Отзывы
+          </a>
+          <a href="cabinet.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 12.2a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8ZM5.2 19.2c.7-3 3.4-4.8 6.8-4.8s6.1 1.8 6.8 4.8v.8H5.2v-.8Z"
+              />
+            </svg>
+            Личный кабинет
+          </a>
+        </nav>
+        <p class="sidebar-note">Меньше отходов.<br />Больше пользы.</p>
+      </aside>
+
+      <main class="dashboard page-shell">
+        <header class="page-hero">
+          <div class="page-hero-art" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="page-hero-body">
+            <p class="eyebrow">FridgeFlow · отзывы</p>
+            <h1>Что говорят о холодильнике</h1>
+            <p class="hero-lead">
+              Один отзыв на человека. Свой можно менять или удалить, чужой — скрыть только у себя.
+              Голоса помогают вынести наверх полезное.
+            </p>
+            <div class="hero-links">
+              <a class="action" href="#review-form">Оставить отзыв</a>
+              <a class="action action-ghost" href="cabinet.html">Личный кабинет</a>
+            </div>
+          </div>
+          <aside class="hero-aside" aria-label="Сводка отзывов">
+            <ul class="hero-stats">
+              <li class="hero-stat"><strong id="hero-average">0</strong><span>средняя оценка</span></li>
+              <li class="hero-stat"><strong id="hero-count">0</strong><span>отзывов всего</span></li>
+              <li class="hero-stat"><strong id="hero-positive">0%</strong><span>ставят 4–5 ★</span></li>
+              <li class="hero-stat"><strong id="hero-mine">—</strong><span>ваша оценка</span></li>
+            </ul>
+          </aside>
+        </header>
+
+        <div class="reviews-layout">
+          <section class="panel rating-board" aria-labelledby="rating-title">
+            <div>
+              <p class="eyebrow" id="rating-title">Средняя оценка</p>
+              <div class="score-line">
+                <span class="score-big" id="score-average">0</span>
+                <span class="score-side">
+                  <span class="score-stars" id="score-stars" aria-hidden="true"></span>
+                  <small id="score-count">Пока нет отзывов</small>
+                </span>
+              </div>
+            </div>
+            <ul class="rating-bars" id="rating-bars" aria-label="Распределение оценок"></ul>
+            <div class="summary-chips" id="summary-chips"></div>
+            <div class="topic-summary" id="topic-summary" hidden></div>
+            <p class="panel-note">Средняя считается по всем отзывам, включая ваш.</p>
+          </section>
+
+          <section class="panel review-compose" aria-labelledby="review-form-title">
+            <h2 id="review-form-title">Ваш отзыв</h2>
+            <form id="review-form" class="review-form" novalidate>
+              <fieldset class="star-picker" id="star-picker" data-field="stars">
+                <legend>Оценка сайта</legend>
+              </fieldset>
+              <p class="rate-hint" id="rate-hint">Нажмите на звезду, чтобы поставить оценку.</p>
+
+              <label class="review-text">
+                Текст отзыва
+                <textarea name="text" maxlength="400" required placeholder="Коротко, как вам FridgeFlow"></textarea>
+              </label>
+              <p class="form-meta">
+                <span>От 10 до 400 символов, без ссылок и заглавных букв.</span>
+                <strong id="text-count">0 / 400</strong>
+              </p>
+
+              <div class="review-form-foot">
+                <button class="action" type="submit" id="review-submit">Опубликовать</button>
+                <button class="action action-quiet" id="review-delete" type="button" hidden>Удалить</button>
+              </div>
+              <p class="review-confirm" id="review-confirm" hidden>
+                Удалить отзыв? Вернуть его потом не получится.
+                <button class="action" id="review-delete-yes" type="button">Да, удалить</button>
+                <button class="action action-quiet" id="review-delete-no" type="button">Нет</button>
+              </p>
+            </form>
+          </section>
+        </div>
+
+        <section class="panel" aria-labelledby="review-list-title">
+          <div class="panel-head">
+            <div class="panel-title-group">
+              <p class="eyebrow">Сообщество</p>
+              <h2 id="review-list-title">Отзывы</h2>
+            </div>
+            <span class="badge-soft" id="list-count">0</span>
+          </div>
+
+          <div class="review-toolbar">
+            <div class="seg-bar" role="group" aria-label="Сортировка отзывов">
+              <button class="seg-btn is-active" type="button" data-sort="new">Новые</button>
+              <button class="seg-btn" type="button" data-sort="useful">Полезные</button>
+              <button class="seg-btn" type="button" data-sort="high">Сначала высокие</button>
+              <button class="seg-btn" type="button" data-sort="low">Сначала низкие</button>
+            </div>
+            <label class="form-meta">
+              Оценка
+              <select class="select-soft" id="star-filter">
+                <option value="0">Все</option>
+                <option value="5">5 ★</option>
+                <option value="4">4 ★</option>
+                <option value="3">3 ★</option>
+                <option value="2">2 ★</option>
+                <option value="1">1 ★</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="review-list" id="review-list" aria-live="polite"></div>
+
+          <details class="hidden-drawer" id="hidden-drawer" hidden>
+            <summary>Скрытые отзывы (<span id="hidden-count">0</span>)</summary>
+            <ul class="hidden-list" id="hidden-list"></ul>
+          </details>
+        </section>
+      </main>
+    </div>
+    <script src="core.js"></script>
+    <script src="ui.js"></script>
+    <script src="reviews.js"></script>
+  </body>
+</html>

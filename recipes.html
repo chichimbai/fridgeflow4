@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Рецепты — FridgeFlow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+  <body class="page-recipes">
+    <div class="app">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M11.8 21c-4.6-5.1-6.4-9.1-3.5-13.3C12.8 8.4 16.2 12 16.8 16.4c-.9.2-1.9.6-2.8 1.2-.6.5-1.4.9-2.2 1.4Z"
+            />
+            <path
+              fill="currentColor"
+              opacity="0.72"
+              d="M12.1 20.7c1.3-3.9 4-6.7 8.2-7.7-.9 4.7-3.6 8.2-8.2 9v-1.3Z"
+            />
+          </svg>
+          <span>FridgeFlow</span>
+        </a>
+
+        <nav class="side-nav" aria-label="Разделы">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 4.2 4 10.4V20h5.2v-5.2h5.6V20H20v-9.6L12 4.2Z" />
+            </svg>
+            Главная
+          </a>
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M7 3.5h10a2 2 0 0 1 2 2V20l-2.2-1.4L14.6 20l-2.6-1.4L9.4 20l-2.2-1.4L5 20V5.5a2 2 0 0 1 2-2Zm1.2 5h7.6v1.6H8.2V8.5Zm0 3.4h7.6v1.6H8.2v-1.6Z"
+              />
+            </svg>
+            Мой холодильник
+          </a>
+          <a href="recipes.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M5 10.2h14v1.1c0 3.6-3.1 6.5-7 6.5s-7-2.9-7-6.5v-1.1Zm1.8-3.4h10.4c-.3-1.7-1.8-2.8-5.2-2.8s-4.9 1.1-5.2 2.8ZM8 19.4h8v1.4H8v-1.4Z"
+              />
+            </svg>
+            Рецепты
+          </a>
+          <a href="reviews.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-3.5 3v-3H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5Z" />
+            </svg>
+            Отзывы
+          </a>
+          <a href="cabinet.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 12.2a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8ZM5.2 19.2c.7-3 3.4-4.8 6.8-4.8s6.1 1.8 6.8 4.8v.8H5.2v-.8Z"
+              />
+            </svg>
+            Личный кабинет
+          </a>
+        </nav>
+
+        <p class="sidebar-note">Меньше отходов.<br />Больше пользы.</p>
+      </aside>
+
+      <main class="dashboard page-shell">
+        <header class="page-hero">
+          <div class="page-hero-art" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="page-hero-body">
+            <p class="eyebrow">FridgeFlow · рецепты</p>
+            <h1>Готовим из того, что уже есть</h1>
+            <p class="hero-lead">
+              Рецепт собирается из вашего холодильника. Сначала берутся продукты, у которых
+              кончается срок, а вкус и тип блюда уточняют выбор. Если чего-то не хватает —
+              рецепт честно об этом скажет.
+            </p>
+            <div class="hero-links">
+              <a class="action" href="#recipe-form">Подобрать блюдо</a>
+              <a class="action action-ghost" href="history.html">История рецептов</a>
+              <a class="action action-ghost" href="dashboard.html">Мой холодильник</a>
+            </div>
+          </div>
+          <aside class="hero-aside" aria-label="Сводка">
+            <ul class="hero-stats">
+              <li class="hero-stat"><strong id="hero-active">0</strong><span>продуктов в работе</span></li>
+              <li class="hero-stat is-warn"><strong id="hero-urgent">0</strong><span>на исходе срока</span></li>
+              <li class="hero-stat"><strong id="hero-cooked">0</strong><span>блюд приготовлено</span></li>
+              <li class="hero-stat"><strong id="hero-favorites">0</strong><span>в избранном</span></li>
+            </ul>
+          </aside>
+        </header>
+
+        <div class="cook-layout">
+          <section class="panel kitchen-panel" aria-labelledby="recipe-form-title">
+            <div class="panel-head">
+              <div class="panel-title-group">
+                <p class="eyebrow">Ваш запрос</p>
+                <h2 id="recipe-form-title">Какое блюдо приготовить</h2>
+              </div>
+              <span class="badge-soft">TheMealDB</span>
+            </div>
+
+            <form id="recipe-form" class="recipe-form" novalidate>
+              <label>
+                Пожелание
+                <textarea
+                  name="wish"
+                  maxlength="200"
+                  data-field="wish"
+                  placeholder="Например, острое, сытное, с курицей или постное"
+                ></textarea>
+              </label>
+              <p class="form-meta">
+                <span>Можно оставить пустым — тогда рецепт соберётся только из продуктов.</span>
+                <strong id="wish-count">0 / 200</strong>
+              </p>
+
+              <fieldset class="dish-types" data-field="taste">
+                <legend>Вкус, можно несколько</legend>
+                <label><input type="checkbox" name="taste" value="spicy" /><span>Острое</span></label>
+                <label><input type="checkbox" name="taste" value="salty" /><span>Солёное</span></label>
+                <label><input type="checkbox" name="taste" value="sweet" /><span>Сладкое</span></label>
+                <label><input type="checkbox" name="taste" value="sour" /><span>Кислое</span></label>
+                <label><input type="checkbox" name="taste" value="light" /><span>Лёгкое</span></label>
+                <label><input type="checkbox" name="taste" value="hearty" /><span>Сытное</span></label>
+              </fieldset>
+
+              <fieldset class="dish-types" data-field="dish">
+                <legend>Тип блюда, можно несколько</legend>
+                <label><input type="checkbox" name="dish" value="salad" /><span>Салат</span></label>
+                <label><input type="checkbox" name="dish" value="soup" /><span>Суп</span></label>
+                <label><input type="checkbox" name="dish" value="hot" /><span>Горячее</span></label>
+                <label><input type="checkbox" name="dish" value="breakfast" /><span>Завтрак</span></label>
+                <label><input type="checkbox" name="dish" value="snack" /><span>Закуска</span></label>
+                <label><input type="checkbox" name="dish" value="side" /><span>Гарнир</span></label>
+                <label><input type="checkbox" name="dish" value="dessert" /><span>Десерт</span></label>
+                <label><input type="checkbox" name="dish" value="drink" /><span>Напиток</span></label>
+              </fieldset>
+
+              <div class="form-foot">
+                <button class="action" type="submit">Найти рецепт</button>
+                <span class="form-meta"><span>Поиск идёт по одному запросу за раз.</span></span>
+              </div>
+            </form>
+
+            <div class="quick-row" id="quick-row" hidden>
+              <p class="quick-row-label">Недавние запросы</p>
+              <div class="quick-chips" id="quick-chips"></div>
+              <button class="link-btn" id="clear-searches" type="button">Очистить историю запросов</button>
+            </div>
+          </section>
+
+          <section class="panel fridge-panel" aria-labelledby="fridge-pick-title">
+            <div class="panel-head">
+              <div class="panel-title-group">
+                <p class="eyebrow">Из холодильника</p>
+                <h2 id="fridge-pick-title">Сначала то, что скоро испортится</h2>
+              </div>
+              <span class="badge-soft" id="fridge-count">0</span>
+            </div>
+            <ul id="fridge-pick" class="pick-list"></ul>
+            <p class="panel-note">
+              Поиск идёт в TheMealDB, начиная с продуктов ближе к концу срока.
+              <a href="dashboard.html">Пополнить холодильник</a>
+            </p>
+          </section>
+        </div>
+
+        <section class="panel result-panel" id="recipe-result" aria-live="polite" hidden></section>
+
+        <section class="panel favorites-panel" aria-labelledby="favorites-title">
+          <div class="panel-head">
+            <div class="panel-title-group">
+              <p class="eyebrow">Ваша полка</p>
+              <h2 id="favorites-title">Избранные рецепты</h2>
+            </div>
+            <span class="badge-soft" id="favorites-count">0</span>
+          </div>
+          <div class="meal-grid" id="recipe-favorites"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="core.js"></script>
+    <script src="ui.js"></script>
+    <script src="mealdb.js"></script>
+    <script src="translate.js"></script>
+    <script src="recipes.js"></script>
+  </body>
+</html>
